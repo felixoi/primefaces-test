@@ -1,2 +1,9 @@
-package org.primefaces.test;public class TestType {
+package org.primefaces.test;
+
+public enum TestType {
+
+  ONE,
+  TWO,
+  THREE
+
 }

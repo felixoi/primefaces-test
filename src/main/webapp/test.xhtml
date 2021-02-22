@@ -13,7 +13,16 @@
 
         <h1>#{testView.string}</h1>
         <h:form id="frmTest">
-            
+            <p:dataTable var="test" value="#{testView.tests}">
+                <p:column headerText="Name" field="name">
+                    #{test.name}
+                </p:column>
+                <p:column headerText="Type">
+                    <p:selectOneMenu value="#{test.testType}">
+                        <f:selectItems value="#{testView.allValues()}" />
+                    </p:selectOneMenu>
+                </p:column>
+            </p:dataTable>
         </h:form>
 
     </h:body>
