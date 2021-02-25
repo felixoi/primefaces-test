@@ -10,20 +10,30 @@ import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import org.primefaces.PrimeFaces;
+import org.primefaces.component.dialog.Dialog;
+import org.primefaces.event.MoveEvent;
+import org.primefaces.event.data.FilterEvent;
 
 @Data
 @Named
 @ViewScoped
 public class TestView implements Serializable {
-    
+
     private String string;
     private Integer integer;
     private BigDecimal decimal;
     private LocalDateTime localDateTime;
 
     private List<Test> tests;
-    
-    @PostConstruct  
+
+    @Getter
+    @Setter
+    private Dialog dialog;
+
+    @PostConstruct
     public void init() {
         string = "Welcome to PrimeFaces!!!";
 
@@ -39,6 +49,4 @@ public class TestView implements Serializable {
     public TestType[] allValues() {
         return TestType.values();
     }
-
-
 }
