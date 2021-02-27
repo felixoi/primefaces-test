@@ -16,5 +16,20 @@
             
         </h:form>
 
+        <p:dataTable var="t" value="#{testView.test}" editable="true" editMode="cell">
+            <p:ajax event="cellEditInit" listener="#{testView.initEvent}" />
+
+            <p:column headerText="Test">
+                <p:cellEditor>
+                    <f:facet name="output">
+                        <h:outputText value="#{t}"/>
+                    </f:facet>
+                    <f:facet name="input">
+                        <p:inputText id="modelInput2" value="#{t}" style="width:100%"/>
+                    </f:facet>
+                </p:cellEditor>
+            </p:column>
+        </p:dataTable>
+
     </h:body>
 </html>
